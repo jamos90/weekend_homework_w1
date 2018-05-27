@@ -132,8 +132,10 @@ class TestPetShop < Minitest::Test
   #
   def test_remove_pet_by_name
     remove_pet_by_name(@pet_shop, "Arthur")
+    # need to pass in the pet_shop and pet name to remove
     pet = find_pet_by_name(@pet_shop,"Arthur")
     assert_nil(pet)
+  #when run the result should be nill - ie removed
   end
 
   def test_add_pet_to_stock
@@ -174,17 +176,19 @@ class TestPetShop < Minitest::Test
 
   # # OPTIONAL
 
-  # def test_customer_can_afford_pet__insufficient_funds
-  #   customer = @customers[1]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(false, can_buy_pet)
-  # end
+  def test_customer_can_afford_pet__insufficient_funds
+    customer = @customers[1]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    #need to create a function that checks if customer has enough cash to cover the cost of a new_pet
+    assert_equal(false, can_buy_pet)
+    #customer[1] does not so needs to return false
+   end
 
-  # def test_customer_can_afford_pet__sufficient_funds
-  #   customer = @customers[0]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(true, can_buy_pet)
-  # end
+  def test_customer_can_afford_pet__sufficient_funds
+    customer = @customers[0]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    assert_equal(true, can_buy_pet)
+  end
 
   # #These are 'integration' tests so we want multiple asserts.
   # #If one fails the entire test should fail

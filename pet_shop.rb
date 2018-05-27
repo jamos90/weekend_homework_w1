@@ -19,7 +19,7 @@ def increase_pets_sold(number_of_pets,ammount)
 end
 
 def stock_count(current_stock)
-  return @pet_shop[:pets].length
+  return @pet_shop[:pets].length()
 end
 
 def pets_by_breed(pet_shop, breed)
@@ -40,8 +40,12 @@ def find_pet_by_name(pet_shop, pet_name)
   return nil
 end
 
-def remove_pet_by_name(pet_shop, pet_name_to_remove)
+def remove_pet_by_name(pet_shop, pet_name)
+  pets = pet_shop[:pets]
 
+  for pet in pets
+  return [:pets].delete(pet_name) if pet[:name] == pet_name
+  end
 end
 
 def add_pet_to_stock (pet_shop, new_pet)
@@ -57,13 +61,22 @@ def remove_customer_cash(array, ammount)
 end
 
 def customer_pet_count(array)
-  return (array)[:pets].length
+  return (array)[:pets].length()
 end
 
 def add_pet_to_customer(array, new_pet)
   (array)[:pets] << new_pet
-  return (array)[:pets].length
+  return (array)[:pets].length()
 end
+
+def customer_can_afford_pet (array, new_pet )
+
+  if (array)[:cash] >= @new_pet[:price]
+    return true
+  else return false
+  end
+end
+
 
     # for chicken in chicken_hashes
     #   if chicken[:name] == "Audrey"
