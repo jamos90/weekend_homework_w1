@@ -56,6 +56,15 @@ def remove_customer_cash(array, ammount)
   return (array)[:cash] -= ammount
 end
 
+def customer_pet_count(array)
+  return (array)[:pets].length
+end
+
+def add_pet_to_customer(array, new_pet)
+  (array)[:pets] << new_pet
+  return (array)[:pets].length
+end
+
     # for chicken in chicken_hashes
     #   if chicken[:name] == "Audrey"
     #     p "I found Audrey!"
