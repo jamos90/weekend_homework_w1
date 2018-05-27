@@ -40,11 +40,11 @@ def find_pet_by_name(pet_shop, pet_name)
   return nil
 end
 
-def remove_pet_by_name(pet_shop, pet_name)
-  pets = pet_shop[:pets]
-
-  for pet in pets
-  return [:pets].delete(pet_name) if pet[:name] == pet_name
+def remove_pet_by_name(owner, pet_name)
+  for pet in owner[:pets]
+    if pet[:name] == pet_name
+      owner[:pets].delete(pet)
+    end
   end
 end
 
@@ -76,6 +76,12 @@ def customer_can_afford_pet (array, new_pet )
   else return false
   end
 end
+
+def sell_pet_to_customer(pet_shop, pet_name, array)
+
+
+end
+
 
 
     # for chicken in chicken_hashes
